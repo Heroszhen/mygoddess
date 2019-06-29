@@ -1,0 +1,56 @@
+<div class="sign">	
+	<div class="container">
+		<div class="row justify-content-center towbtns">
+			<div class="col-6 col-md-3 text-center">
+				<span (click)="showform(1)">
+					Connexion
+				</span>
+			</div>
+			<div class="col-6  col-md-3 text-center">
+				<span (click)="showform(2)">
+					Inscription
+				</span>
+			</div>
+		</div>
+		
+		<div *ngIf="showconnectionform == true" class="row justify-content-center connection">
+			<div class="col-11 col-md-5">
+				<div class="borderform">
+					<form [formGroup]="connectionForm" (ngSubmit)="connectionSubmit()">
+					  <div class="form-group">
+						<label for="email">Votre mail</label>
+						<input type="email" class="form-control" name="email" id="email" placeholder="Entrez mail" formControlName="connectionEmail" required>
+					  </div>
+					  <div class="form-group">
+						<label for="mdp">Votre mot de passe</label>
+						<input type="text" class="form-control" name="mdp" id="mdp" placeholder="Entrez mot de passe" formControlName="connectionPassword" required>
+					  </div>
+					  <button type="submit" [disabled]="connectionForm.invalid">Se connecter</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div *ngIf="showinscriptionform == true" class="row justify-content-center inscription">
+			<div class="col-11 col-md-5">
+				<div class="borderform">
+					<form [formGroup]="inscriptionForm" (ngSubmit)="inscriptionSubmit()">
+					  <div class="form-group">
+						<label for="email">Votre mail</label>
+						<input type="email" class="form-control" name="email" id="email" placeholder="Entrez mail">
+					  </div>
+					  <div class="form-group">
+						<label for="mdp">Votre mot de passe</label>
+						<input type="text" class="form-control" name="mdp" id="mdp" placeholder="Entrez mot de passe">
+					  </div>
+					  <div class="form-group">
+						<label for="rmdp">Votre mot de passe</label>
+						<input type="text" class="form-control" name="rmdp" id="rmdp" placeholder="Retapez mot de passe">
+					  </div>
+					  <button type="submit" [disabled]="inscriptionForm.invalid">Se connecter</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

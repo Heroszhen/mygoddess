@@ -1,0 +1,60 @@
+.sign{
+	padding:0;
+	background-image:url(../../../assets/images/giphy.webp);
+	background-repeat:no-repeat;
+	background-size:cover;
+	min-height:100vh;
+	color:rgb(255,255,255,0.4);
+	min-height:100vh;
+}
+
+.sign .container{
+	position:relative;
+	top:15vh;
+}
+
+.sign .towbtns{
+	margin-bottom:100px;
+}
+
+.sign .towbtns span:hover{
+	cursor:pointer;
+	color:white;
+	border:1px solid white;
+	border-radius:5px;
+	padding:5px 20px 5px 20px;
+}
+
+.sign .borderform{
+	padding:25px;
+	border:2px solid rgb(255,255,255,0.4);
+	border-radius:10px;
+	max-width:400px;
+	margin:0 auto;
+}
+
+.sign form input{
+	background:rgb(255,255,255,0.4);
+}
+.sign form input:hover{
+	background:rgb(255,255,255,0.9);
+}
+
+.sign form button{
+	background:rgb(255,255,255,0.4);
+	width:100%;
+	border-radius:20px;
+	color:rgb(255,255,255,0.6);
+	margin-top:20px;
+	padding-bottom:3px;
+}
+
+.sign form button:hover{
+	color:gray;
+	background:white;
+}
+@media (max-width:576px){
+	.sign{
+		background-image:url(../../../assets/images/UncommonSlimHarrier.gif);
+	}
+}

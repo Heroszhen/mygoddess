@@ -16,6 +16,7 @@
 		<div *ngIf="showconnectionform == true" class="row justify-content-center connection">
 			<div class="col-11 col-md-5">
 				<div class="borderform">
+					<div *ngIf="resultapi != ''" class="text-center h5 text-danger">{{resultapi}}</div>
 					<form [formGroup]="connectionForm" (ngSubmit)="connectionSubmit()">
 					  <div class="form-group">
 						<label for="email">Votre mail</label>
@@ -23,7 +24,7 @@
 					  </div>
 					  <div class="form-group">
 						<label for="mdp">Votre mot de passe</label>
-						<input type="text" class="form-control" name="mdp" id="mdp" placeholder="Entrez mot de passe" formControlName="connectionPassword" required>
+						<input type="password" class="form-control" name="mdp" id="mdp" placeholder="Entrez mot de passe" formControlName="connectionPassword" required>
 					  </div>
 					  <button type="submit" [disabled]="connectionForm.invalid">Se connecter</button>
 					</form>
@@ -34,18 +35,19 @@
 		<div *ngIf="showinscriptionform == true" class="row justify-content-center inscription">
 			<div class="col-11 col-md-5">
 				<div class="borderform">
+					<div *ngIf="resultapi != ''" class="text-center h5 text-danger">{{resultapi}}</div>
 					<form [formGroup]="inscriptionForm" (ngSubmit)="inscriptionSubmit()">
 					  <div class="form-group">
 						<label for="email">Votre mail</label>
-						<input type="email" class="form-control" name="email" id="email" placeholder="Entrez mail">
+						<input type="email" class="form-control" name="email" id="email" placeholder="Entrez mail" formControlName="inscriptionEmail" required>
 					  </div>
 					  <div class="form-group">
 						<label for="mdp">Votre mot de passe</label>
-						<input type="text" class="form-control" name="mdp" id="mdp" placeholder="Entrez mot de passe">
+						<input type="password" class="form-control" name="mdp" id="mdp" placeholder="5 caractères minimum" formControlName="inscriptionPassword" required>
 					  </div>
 					  <div class="form-group">
-						<label for="rmdp">Votre mot de passe</label>
-						<input type="text" class="form-control" name="rmdp" id="rmdp" placeholder="Retapez mot de passe">
+						<label for="rmdp">Votre confirmation</label>
+						<input type="password" class="form-control" name="rmdp" id="rmdp" placeholder="Retapez mot de passe" formControlName="inscriptionRPassword" required>
 					  </div>
 					  <button type="submit" [disabled]="inscriptionForm.invalid">Se connecter</button>
 					</form>

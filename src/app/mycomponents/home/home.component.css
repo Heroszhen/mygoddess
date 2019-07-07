@@ -1,0 +1,28 @@
+div#home{
+	width:100%;
+	min-height:100vh;
+	background-image:linear-gradient(to bottom right,rgb(7,80,119),rgb(204,240,228));
+}
+
+#home{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+#home>div{
+	width:100%;
+}
+
+@media (max-width: 760px){
+	#home iframe{
+		height:300px
+	}
+}
+
+
+@media (max-width: 576px){
+	#home iframe{
+		height:200px
+	}
+}

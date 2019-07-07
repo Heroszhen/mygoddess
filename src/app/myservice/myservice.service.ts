@@ -10,7 +10,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MyserviceService {
 	result$ = new BehaviorSubject({});
-	baseUrl = "http://localhost/goddess/api/";
+	//baseUrl = "http://localhost/goddess/backend/";
+	baseUrl = "http://zhenyang.fr/goddess/backend/";
   constructor(private http: HttpClient) { }
   
   private handleError(error: HttpErrorResponse) {
@@ -21,12 +22,12 @@ export class MyserviceService {
   
     
   postQuery(query:{},url): Observable<{}> {
-		return this.http.post(`${this.baseUrl}/url`, query).pipe(
+		return this.http.post(`${this.baseUrl}`+url, query).pipe(
 		  catchError(this.handleError)
 		); 
   }
   
-  myquery(obj,url){
+  mypostquery(obj,url){
     this.postQuery(obj,url).subscribe(
       (res) => {
         this.result$.next(res);
@@ -34,28 +35,25 @@ export class MyserviceService {
       (err)=>{}
     );
   }
+  
+  //cookies
+  setCookie(name,valuejson){
+	document.cookie = name+"="+JSON.stringify(valuejson);  
+  }
+  
+  getCookie(name){
+	var myarray = document.cookie.split("; ");
+	for(var i =0; i<myarray.length;i++){
+		var courantarray = myarray[i].split('=');
+		if(courantarray[0] == name){
+			return;
+		}
+	}
+	return "no";
+  }
+  
+  deleteCookie(name){
+	document.cookie = name+'=;max-age=-99';
+  }
 }
 
-/*
-
-
-  <?php
-
-	require_once "init.php";
-	
-	$postdata = file_get_contents("php://input");
-	
-	if(isset($postdata) && !empty($postdata)){
-		$array = json_decode($postdata);
-		$query = "insert into message (user,content) values (:user,:content)";
-		execRequete($query,[
-			":user"=>$array->name,
-			":content"=>$array->message
-		]);
-		echo $array->name;
-	}
-	
-?>s
-
-
-*/

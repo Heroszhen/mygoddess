@@ -10,8 +10,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MyserviceService {
 	result$ = new BehaviorSubject({});
-	//baseUrl = "http://localhost/goddess/backend/";
-	baseUrl = "http://zhenyang.fr/goddess/backend/";
+	baseUrl = "http://localhost/goddess/backend/";
+	//baseUrl = "http://zhenyang.fr/goddess/backend/";
   constructor(private http: HttpClient) { }
   
   private handleError(error: HttpErrorResponse) {

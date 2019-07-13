@@ -63,7 +63,7 @@ export class SignComponent implements OnInit {
 		};
 		this.ms.mypostquery(obj,'api');
 		this.ms.result$.subscribe((value) => {
-			if(Object.keys(value).length !== 0){
+			if(value != null && Object.keys(value).length !== 0){
 				if(value['response'] == 'noconnection')this.resultapi = 'Veuillez verifiez votre mail et votre mot de passe';
 				if(value['response'] == 'okconnection'){
 					this.ms.setCookie('user',value['id']);

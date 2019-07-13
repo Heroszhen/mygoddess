@@ -1,18 +1,53 @@
 <app-nav [father]='page'></app-nav>
-<div></div>
+<div *ngIf="showbigimg == true" class="bigimg">
+	<div class="text-center">
+		<img [src]="bigimgsrc" alt="">
+	</div>
+	<div class="text-right mr-1">
+		<span (click)="closebigimg()">&times;</span>
+	</div>
+</div>
+<div *ngIf="showdiaporama == true" class="bigimg diaporama">
+	<div class="text-center">
+		<img [src]="bigimgsrc" alt="">
+	</div>
+	<div class="text-right mr-1">
+		<span (click)="closediaporama()">&times;</span>
+	</div>
+</div>
 <div id="gallery" class="undertopfixed">
 	<div class="nav2" >
 		<div>
-			<button class="btn btn-outline-primary btn-sm">Diaporama</button>
+			<div class="text-center">
+				<button (click)="diaporama()" class="btn btn-outline-primary btn-sm">Diaporama</button>
+			</div>
+			<div class="text-center">
+				<button (click)="showborder1()" class="btn btn-outline-primary btn-sm">Bordure</button>
+			</div>
+			<div class="text-center">
+				<button (click)="showflouter()" class="btn btn-outline-primary btn-sm">Flouter</button>
+			</div>
+			<div class="text-center">
+				<button (click)="showgriser()" class="btn btn-outline-primary btn-sm">Griser</button>
+			</div>
 		</div>
 	</div>
 	<div class="photos">
-		<img src="http://blog.amplitudes.com/wp-content/uploads/2016/10/shutterstock_321110801_-Colorful-autumn-landscape.-Parc-national-Mont-Tremblant.-Quebec-recoup%C3%A9e-1170x507.jpg" alt="">
-		<img src="https://images-na.ssl-images-amazon.com/images/I/51JGfGam2cL._SX258_BO1,204,203,200_.jpg" alt="">
-		<img src="http://blog.amplitudes.com/wp-content/uploads/2016/10/shutterstock_321110801_-Colorful-autumn-landscape.-Parc-national-Mont-Tremblant.-Quebec-recoup%C3%A9e-1170x507.jpg" alt="">
-		<img src="https://images-na.ssl-images-amazon.com/images/I/51JGfGam2cL._SX258_BO1,204,203,200_.jpg" alt=""><img src="https://cdn.pixabay.com/photo/2019/05/21/19/39/grass-4219937__480.jpg" alt="">
-		<img src="https://images-na.ssl-images-amazon.com/images/I/51JGfGam2cL._SX258_BO1,204,203,200_.jpg" alt=""><img src="http://blog.amplitudes.com/wp-content/uploads/2016/10/shutterstock_321110801_-Colorful-autumn-landscape.-Parc-national-Mont-Tremblant.-Quebec-recoup%C3%A9e-1170x507.jpg" alt="">
-		<img src="https://images-na.ssl-images-amazon.com/images/I/51JGfGam2cL._SX258_BO1,204,203,200_.jpg" alt=""><img src="http://blog.amplitudes.com/wp-content/uploads/2016/10/shutterstock_321110801_-Colorful-autumn-landscape.-Parc-national-Mont-Tremblant.-Quebec-recoup%C3%A9e-1170x507.jpg" alt="">
-		<img src="https://images-na.ssl-images-amazon.com/images/I/51JGfGam2cL._SX258_BO1,204,203,200_.jpg" alt="">
+		<div *ngIf="allphotos != ''" class="container-fluid">
+			<div class="row">
+				<div class="col-12 mb-5 nav22">
+					<button (click)="diaporama()" class="btn btn-outline-primary btn-sm">Diaporama</button>
+					<button (click)="showborder1()" class="btn btn-outline-primary btn-sm">Bordure</button>
+					<button (click)="showflouter()" class="btn btn-outline-primary btn-sm">Flouter</button>
+					<button (click)="showgriser()" class="btn btn-outline-primary btn-sm">Griser</button>
+				</div>
+				<div *ngFor="let item of allphotos" class="col-md-6 col-lg-4 col-xl-3 text-center mb-2">
+					<div [ngClass]="{'onephoto': onephoto==true, 'border1': border1==true, 'flouter': flouter==true,'griser':griser==true}" (click)="enlargephoto(item.link)">
+						<img src="{{item.link}}" alt="">
+					</div>
+					
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

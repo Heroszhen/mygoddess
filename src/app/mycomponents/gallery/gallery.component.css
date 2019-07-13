@@ -15,33 +15,91 @@ div#gallery>div{
 div#gallery>div.nav2{
 	width:200px;
 	border-right:3px solid gray;
-	
+}
+div#gallery>div.nav2 >div{
+	display:flex;
+	flex-wrap:wrap;
+}
+div#gallery>div.nav2 >div div{
+	width:100%;
+	margin-bottom:10px;
 }
 div#gallery>div.photos{
 	width:calc(100% - 200px);
 	max-height:200vh;
 }
 
-div#gallery>div.photos img{
-	width:auto;
-	height:150px;
-	float:left;
-	margin-right:20px;
-	margin-bottom:2%;
+div#gallery .nav22{
+	display:none;
+}
+div#gallery .onephoto{
 	overflow:hidden;
-	height:150px;
+}
+div#gallery .onephoto img{
+	height:180px;
+	width:auto;
+	display:block;
+	margin: 0 auto;
+}
+.bigimg{
+	position:absolute;
+	top:56px;
+	z-index:200;
+	min-height:200vh;
+	width:100%;
+	background:rgb(0,0,0,0.7);
+	display:flex;
 }
 
+.bigimg>div:nth-child(1){
+	width:calc(100% - 50px);
+	height:95vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.bigimg>div:nth-child(1)>img{
+	height:90%;
+}
+.bigimg>div:nth-child(2){
+	width:50px;
+	height:20px;
+	font-size:40px;
+	color:white;
+}
+.bigimg>div:nth-child(2)>span:hover{
+	cursor:pointer;
+}
+
+.border1{
+	border: 50px solid transparent;
+	border-image: url('../../../assets/images/artcitytheeuropean.jpg') 150;
+}
+.flouter img{
+	opacity : 0.4;
+}
+
+.griser img{
+	filter: grayscale(100%);
+}
 
 @media (max-width: 760px){
-	div#gallery>div.photos .onephoto{
-		
+	div#gallery>div.nav2{
+		display:none;
+	}
+	div#gallery .nav22{
+		display:block;
+	}
+	div#gallery>div.photos{
+		width:100%;
+	}
+	.bigimg>div:nth-child(1)>img{
+		width:95%;
+		height:auto;
 	}
 }
 
 
 @media (max-width: 576px){
-	div#gallery>div.photos .onephoto{
-		
-	}
+	
 }

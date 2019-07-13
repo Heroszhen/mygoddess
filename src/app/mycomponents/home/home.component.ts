@@ -8,7 +8,7 @@ import { MyserviceService } from '../../myservice/myservice.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-	page = "gallery";
+	page = "home";
   constructor(private router: Router,private ms : MyserviceService) { 
 	if(this.ms.getCookie('user') == "no")this.router.navigate(['/sign']);
   }

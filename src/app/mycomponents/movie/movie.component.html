@@ -1,0 +1,53 @@
+<app-nav [father]='page'></app-nav>
+<div id="movie" class="undertopfixed">
+	<div class="container">
+		<div *ngIf="allmovies != '' && showsection1 == true" class="row  pt-3 section1">
+			<div *ngFor="let item of allmovies; let key = index" class="col-12 col-md-6 col-lg-4 text-center mb-2">
+				<div class="card" style="width: 18rem;">
+					<img src="{{item.poster}}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{item.name}}</h5>
+						<button class="btn btn-primary" (click)="showinfos(key)">Voir les infos</button>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="showsection2 == true" class="section2 pt-3 pb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 mb-4">
+					<span (click)="closeinfos()">
+						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="25" viewBox="0 0 10 16"><path fill-rule="evenodd" d="M6 3L0 8l6 5v-3h4V6H6V3z"/></svg>
+					</span> 
+					<span class="h4 title"><strong>{{onemovie.name}}</strong></span>
+				</div>
+				<div class="col-12 col-md-7 text-center mb-4">
+					<img src="{{onemovie.poster}}" alt="">
+				</div>
+				<div class="col-12 col-md-5">
+					<strong>Résumé</strong>:
+					<div class="mb-3">
+						{{onemovie.plot}}
+					</div>
+					<strong>Genre</strong>:
+					<div class="mb-3">
+						{{onemovie.genre}}
+					</div>
+					<strong>Duration</strong>:
+					<div class="mb-3">
+						{{onemovie.running_time}} minutes
+					</div>
+					<strong>Acteurs</strong>:
+					<div class="mb-3">
+						{{onemovie.actors}}
+					</div>
+					<strong>Date de sortie</strong>:
+					<div class="mb-3">
+						{{onemovie.release_date}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

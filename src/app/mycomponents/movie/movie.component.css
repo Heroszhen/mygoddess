@@ -1,0 +1,31 @@
+#movie .card{
+	box-sizing:border-box;
+	margin:0 auto;
+}
+#movie .card:hover{
+	border:10px solid orange;
+}
+#movie .card img{
+	height:355px;
+}
+#movie .card .card-title{
+	width:99%;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+#movie .section2{
+	background:#9966ff;
+	min-height:calc(100vh - 50px);
+}
+
+#movie .section2 svg:hover{
+	cursor:pointer;
+}
+
+#movie .section2 .title:hover{
+	color:white;
+}
+#movie .section2 img{
+	width:80%;
+}

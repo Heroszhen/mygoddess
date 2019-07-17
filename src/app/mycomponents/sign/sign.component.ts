@@ -15,7 +15,7 @@ export class SignComponent implements OnInit {
 	inscriptionForm:FormGroup;
 	resultapi = "";
   constructor(private fb : FormBuilder, private ms : MyserviceService,private router: Router){ 
-	if(this.ms.getCookie('user') != "no")this.router.navigate(['/home']);
+	//if(this.ms.getCookie('user') != "no")this.router.navigate(['/home']);
 	this.createForm();
   }
 

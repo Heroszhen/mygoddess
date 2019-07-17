@@ -10,8 +10,11 @@
       <li [ngClass]="father=='gallery'?'active nav-item':'nav-item'">
         <a class="nav-link" href="#" routerLink="/gallery">Galerie</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Filmographie</a>
+      <li [ngClass]="father=='movie'?'active nav-item':'nav-item'">
+        <a class="nav-link" href="#" routerLink="/movie">Filmographie</a>
+      </li>
+      <li [ngClass]="father=='video'?'active nav-item':'nav-item'">
+        <a class="nav-link" href="#" routerLink="/video">Video</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

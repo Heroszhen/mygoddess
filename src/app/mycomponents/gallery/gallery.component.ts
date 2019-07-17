@@ -19,7 +19,7 @@ export class GalleryComponent implements OnInit {
 	flouter = false;
 	griser = false;
   constructor(private router: Router,private ms : MyserviceService) { 
-	if(this.ms.getCookie('user') == "no")this.router.navigate(['/sign']);
+	//if(this.ms.getCookie('user') == "no")this.router.navigate(['/sign']);
 	this.getAllPhotos();
 	
   }

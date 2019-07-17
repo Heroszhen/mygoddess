@@ -10,7 +10,7 @@ import { MyserviceService } from '../../myservice/myservice.service';
 export class HomeComponent implements OnInit {
 	page = "home";
   constructor(private router: Router,private ms : MyserviceService) { 
-	if(this.ms.getCookie('user') == "no")this.router.navigate(['/sign']);
+	//if(this.ms.getCookie('user') == "no")this.router.navigate(['/sign']);
   }
 
   ngOnInit() {

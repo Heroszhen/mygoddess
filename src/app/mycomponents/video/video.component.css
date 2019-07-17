@@ -1,0 +1,13 @@
+#video .section1 iframe {
+	width:95%;
+	height:180px;
+	padding-top:40px;
+}
+
+@media (max-width:760px){
+	#video .section1 iframe {
+		width:95%;
+		height:300px;
+	}
+
+}

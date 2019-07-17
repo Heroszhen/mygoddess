@@ -11,11 +11,11 @@ import { BehaviorSubject } from 'rxjs';
 export class MyserviceService {
 	result$ = new BehaviorSubject({});
 	baseUrl = "http://localhost/goddess/backend/";
-	//baseUrl = "http://zhenyang.fr/goddess/backend/";
+	//baseUrl = "https://zhenyang.fr/goddess/backend/";
   constructor(private http: HttpClient) { }
   
   private handleError(error: HttpErrorResponse) {
-	  console.log(error);
+		//console.log(error);
 	  // return an observable with a user friendly message
 	  return throwError('Error! something went wrong.');
   }

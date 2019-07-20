@@ -1,0 +1,50 @@
+<div id="adminnave">
+	<div id="gohome">
+		<div class="title">
+			<div class="partI" routerLink="/home">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" style="fill:white" d="M16 9l-3-3V2h-2v2L8 1 0 9h2l1 5c0 .55.45 1 1 1h8c.55 0 1-.45 1-1l1-5h2zm-4 5H9v-4H7v4H4L2.81 7.69 8 2.5l5.19 5.19L12 14z"/></svg>
+				Accueil
+			</div>
+		</div>
+	</div>
+	<div id="showusers">
+		<div class="title" (click)="showsectionbtn('membres')">
+			<div class="partI">
+				<svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" style="fill:white" d="M12 14.002a.998.998 0 0 1-.998.998H1.001A1 1 0 0 1 0 13.999V13c0-2.633 4-4 4-4s.229-.409 0-1c-.841-.62-.944-1.59-1-4 .173-2.413 1.867-3 3-3s2.827.586 3 3c-.056 2.41-.159 3.38-1 4-.229.59 0 1 0 1s4 1.367 4 4v1.002z"/></svg>
+				Membres
+			</div>
+			<div class="partII">
+				<svg xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16" class="chevronright" *ngIf="showsection != 'membres'"><path fill-rule="evenodd" style="fill:white" d="M7.5 8l-5 5L1 11.5 4.75 8 1 4.5 2.5 3l5 5z"/></svg>
+				<svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16"  *ngIf="showsection == 'membres'"><path fill-rule="evenodd" style="fill:white" d="M5 11L0 6l1.5-1.5L5 8.25 8.5 4.5 10 6l-5 5z"/></svg>
+			</div>
+		</div>
+		<section *ngIf="showsection == 'membres'" routerLink="/adminuser">
+			<div class="btnsection">
+				Tous les membres
+			</div>
+		</section>
+	</div>
+	<div id="showgallery">
+		<div class="title" (click)="showsectionbtn('photos')">
+			<div class="partI">
+				<svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" style="fill:white" d="M6 5h2v2H6V5zm6-.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v11l3-5 2 4 2-2 3 3V5z"/></svg>
+				Galerie
+			</div>
+			<div class="partII">
+				<svg xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16" class="chevronright" *ngIf="showsection != 'photos'"><path fill-rule="evenodd" style="fill:white" d="M7.5 8l-5 5L1 11.5 4.75 8 1 4.5 2.5 3l5 5z"/></svg>
+				<svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16"  *ngIf="showsection == 'photos'"><path fill-rule="evenodd" style="fill:white" d="M5 11L0 6l1.5-1.5L5 8.25 8.5 4.5 10 6l-5 5z"/></svg>
+			</div>
+		</div>
+		<section *ngIf="showsection == 'photos'">
+			<div class="btnsection" [routerLink]="['/admingallery','1']">
+				Toutes les photos
+			</div>
+			<div class="btnsection" [routerLink]="['/admingallery','2']">
+				Ajouter une photo
+			</div>
+			<div class="btnsection" routerLink="/gallery">
+				Galerie
+			</div>
+		</section>
+	</div>
+</div>

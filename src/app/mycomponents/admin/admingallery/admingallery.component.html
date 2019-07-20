@@ -1,0 +1,33 @@
+<div id="admingallery">
+	<div id="nav">
+		<app-adminnave></app-adminnave>
+	</div>
+	<div id="main">
+		<h3 class="text-center text-primary">Toutes les photos</h3>
+		<section *ngIf="showsection == 1" class="container-fluid">
+			<div class="row">
+				<div *ngFor="let item of allphotos;let key = index" class="col-md-6 col-lg-4 mb-1">
+					<div class="onephoto border rounded">
+						<div class="photo text-center">
+							<img src="{{item.link}}" alt="">
+						</div>
+						<div class="infos">
+							<div>
+								<strong>Id</strong> : {{item.id}}
+							</div>
+							<div>
+								<button type="button" class="btn btn-outline-info btn-sm" (click)="editOnePhoto(key)">Modifier</button>
+								<br><br>
+								<button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteOnePhoto(key)">Supprimer</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section *ngIf="showsection == 2">bbbbb
+		</section>
+		<section *ngIf="showsection == 3">
+		</section>
+	</div>
+</div>

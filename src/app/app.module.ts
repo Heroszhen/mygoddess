@@ -13,6 +13,9 @@ import { NavComponent } from './mycomponents/nav/nav.component';
 import { GalleryComponent } from './mycomponents/gallery/gallery.component';
 import { MovieComponent } from './mycomponents/movie/movie.component';
 import { VideoComponent } from './mycomponents/video/video.component';
+import { AdminnaveComponent } from './mycomponents/admin/adminnave/adminnave.component';
+import { AdmingalleryComponent } from './mycomponents/admin/admingallery/admingallery.component';
+import { AdminuserComponent } from './mycomponents/admin/adminuser/adminuser.component';
 
 
 
@@ -25,7 +28,10 @@ import { VideoComponent } from './mycomponents/video/video.component';
     NavComponent,
     GalleryComponent,
     MovieComponent,
-    VideoComponent
+    VideoComponent,
+    AdminnaveComponent,
+    AdmingalleryComponent,
+    AdminuserComponent
   ],
   imports: [
     BrowserModule,

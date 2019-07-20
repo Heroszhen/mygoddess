@@ -1,0 +1,43 @@
+#admingallery{
+	display:flex;
+}
+#admingallery>div:nth-child(1){
+	position:fixed;
+	top:0px;
+	width:240px;
+	min-height:100vh;
+}
+#admingallery>div:nth-child(2){
+	margin-left:240px;
+	width:calc(100% - 240px);
+}
+#admingallery .onephoto{
+	box-sizing: border-box;
+	width:100%;
+	padding:10px;
+	display:flex;
+	height:200px;
+}
+
+#admingallery .onephoto>div{
+	width:40%;
+	height:100%;
+	overflow:hidden;
+}
+#admingallery .onephoto .photo{
+	width:60%;
+}
+
+#admingallery .onephoto .infos{
+display:flex;
+	align-items:center;
+	box-sizing: border-box;
+	flex-wrap:wrap;
+	padding-left:3px;
+}
+#admingallery .onephoto .infos>div{
+	width:100%;
+}
+#admingallery .onephoto img{
+	width:80%;
+}

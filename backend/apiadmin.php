@@ -47,12 +47,48 @@
 				$result = execRequete($query,[
 					"id"    => $array->id,
 				]);
+				$query = "select * from mygoddessPHOTO";
+				$result = execRequete($query,[]);
+				$result = $result->fetchAll();
+				$response['data'] = $result;
 				$response['response'] = "done";
 				echo json_encode($response);
 			}
 		}
 		
-	
+		if($array->action == "editonephoto"){
+			$query = "select * from mygoddessPHOTO where id = :id";
+			$result = execRequete($query,[
+				"id"    => $array->id,
+			]);
+		
+			$result = $result->fetchAll();
+			$response = array();
+			if(count($result) == 0){
+				$response['response'] = "no";
+				echo json_encode($response);
+			}else{
+				$query = "update mygoddessPHOTO set link = :link where id = :id";
+				$result = execRequete($query,[
+					"id"    => $array->id,
+					"link" => $array->link
+				]);
+				$response['response'] = "done";
+				echo json_encode($response);
+			}
+		}
+		if($array->action == "addonephoto"){
+			$query = "insert into mygoddessPHOTO (link) values (:link)";
+			$result = execRequete($query,[
+				"link"    => $array->link,
+			]);
+			$query = "select * from mygoddessPHOTO";
+			$result = execRequete($query,[]);
+			$result = $result->fetchAll();
+			$response['data'] = $result;
+			$response['response'] = "done";
+			echo json_encode($response);
+		}
 	}
 	
 ?>

@@ -3,9 +3,9 @@
 		<app-adminnave></app-adminnave>
 	</div>
 	<div id="main">
-		<h3 class="text-center text-primary">Toutes les photos</h3>
 		<section *ngIf="showsection == 1" class="container-fluid">
 			<div class="row">
+				<h3 class="col-12 text-center text-primary mt-2 mb-4">Toutes les photos</h3>
 				<div *ngFor="let item of allphotos;let key = index" class="col-md-6 col-lg-4 mb-1">
 					<div class="onephoto border rounded">
 						<div class="photo text-center">
@@ -25,9 +25,67 @@
 				</div>
 			</div>
 		</section>
-		<section *ngIf="showsection == 2">bbbbb
+		<section *ngIf="showsection == 2">
+			<div class="container">
+				<div class="row justify-content-center">
+					<h3 class="col-12 text-center text-primary mt-2 mb-4">Modifier une photo</h3>
+					<div class="col-12 col-md-8 mb-2">
+						<span [innerHTML]="msgalert"></span>
+					</div>
+					<div class="col-12 col-md-8">
+						<form>
+							<div class="form-group">
+								<label for="theid">Id</label>
+								<input type="text" class="form-control" id="theid" name="theid" [(ngModel)]="photo1.id" [ngModelOptions]="{standalone: true}"  disabled>
+							</div>
+							<div class="form-group">
+								<label for="thelink">Url</label>
+								<input type="text" class="form-control" id="thelink" placeholder="Entrez link" [(ngModel)]="photo1.link" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="back">
+										<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 10 16"  (click)="goBack()"><path fill-rule="evenodd" d="M6 3L0 8l6 5v-3h4V6H6V3z"/></svg><span>Reculer</span>
+									</div>
+								</div>
+								<div class="col-md-6 text-right">
+									<button type="submit" class="btn btn-primary btn-sm" (click)="editPhoto()">Modifier</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</section>
 		<section *ngIf="showsection == 3">
+			<div class="container">
+				<div class="row justify-content-center">
+					<h3 class="col-12 text-center text-primary mt-2 mb-4">Ajouter une photo</h3>
+					<div class="col-12 col-md-8 mb-2">
+						<span [innerHTML]="msgalert"></span>
+					</div>
+					<div class="col-12 col-md-8 mb-3">
+						<form>
+							<div class="form-group">
+								<label for="theid">Id</label>
+								<input type="text" class="form-control" id="theid" name="theid" [(ngModel)]="photo2.id" [ngModelOptions]="{standalone: true}"  disabled>
+							</div>
+							<div class="form-group">
+								<label for="thelink">Url</label>
+								<input type="text" class="form-control" id="thelink" placeholder="Entrez link" [(ngModel)]="photo2.link" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="row">
+								<div class="col-12">
+									<button type="submit" class="btn btn-primary btn-sm" (click)="addPhoto()">Ajouter</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div *ngIf="photo2.link != ''" class="col-12 col-md-8 text-center showimg">
+						<img [src]="photo2.link" alt="">
+					</div>
+				</div>
+			</div>
 		</section>
 	</div>
 </div>

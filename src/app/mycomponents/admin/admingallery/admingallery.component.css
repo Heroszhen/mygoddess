@@ -29,7 +29,7 @@
 }
 
 #admingallery .onephoto .infos{
-display:flex;
+	display:flex;
 	align-items:center;
 	box-sizing: border-box;
 	flex-wrap:wrap;
@@ -40,4 +40,22 @@ display:flex;
 }
 #admingallery .onephoto img{
 	width:80%;
+}
+.back{
+	display:flex;
+	align-items:center;
+}
+.back span{
+	font-size:25px;
+}
+.back svg:hover{
+	cursor:hover;
+}
+.back svg:hover ~ span{
+	cursor:pointer;
+	color:rgb(0,123,255);
+	font-weight:blod;
+}
+.showimg img{
+	width:90%;
 }

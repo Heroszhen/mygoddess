@@ -1,0 +1,13 @@
+#adminuser{
+	display:flex;
+}
+#adminuser>div:nth-child(1){
+	position:fixed;
+	top:0px;
+	width:240px;
+	min-height:100vh;
+}
+#adminuser>div:nth-child(2){
+	margin-left:240px;
+	width:calc(100% - 240px);
+}

@@ -1,1 +1,73 @@
-<p>adminuser works!</p>
+<div id="adminuser">
+	<div id="nav">
+		<app-adminnave></app-adminnave>
+	</div>
+	<div id="main">
+		<section *ngIf="showsection == 1" class="container-fluid">
+			<div class="row">
+				<h3 class="col-12 text-center text-primary mt-2 mb-4">Toutes les membres</h3>
+				<div class="col-12">
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Id</th>
+								<th scope="col">Mail</th>
+								<th scope="col">Date d'inscription</th>
+								<th scope="col">Rôle</th>
+								<th scope="col">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr  *ngFor="let item of allusers;let key = index" >
+								<th scope="row">{{item.id}}</th>
+								<td>{{item.email}}</td>
+								<td>{{item.inscriptiondate}}</td>
+								<td>{{item.role}}</td>
+								<td>
+									<button type="button" class="btn btn-outline-info btn-sm mb-2" (click)="editOneUser(key)">Modifier</button>
+									<br>
+									<button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteOneUser(key)">Supprimer</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+		<section *ngIf="showsection == 2">
+			<div class="container">
+				<div class="row justify-content-center">
+					<h3 class="col-12 text-center text-primary mt-2 mb-4">Modifier un membre</h3>
+					<div class="col-12 col-md-8 mb-2">
+						<span [innerHTML]="msgalert"></span>
+					</div>
+					<div class="col-12 col-md-8">
+						<form>
+							<div class="form-group">
+								<label for="theid">Id</label>
+								<input type="text" class="form-control" id="theid" name="theid" [(ngModel)]="oneuser.id" [ngModelOptions]="{standalone: true}"  disabled>
+							</div>
+							<div class="form-group">
+								<label for="email">Mail</label>
+								<input type="email" class="form-control" id="theemail" placeholder="Entrez email" [(ngModel)]="oneuser.email" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group">
+								<label for="role">Rôle</label>
+								<input type="text" class="form-control" id="therole" placeholder="Entrez role" [(ngModel)]="oneuser.role" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<button type="submit" class="btn btn-primary btn-sm" (click)="editUser()">Modifier</button>
+								</div>
+								<div class="col-md-6 text-right">
+									<button type="button" class="btn btn-light btn-sm" (click)="goBack()">Retourner</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+

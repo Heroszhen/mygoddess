@@ -4,7 +4,10 @@
 		<div *ngIf="allmovies != '' && showsection1 == true" class="row  pt-3 section1">
 			<div *ngFor="let item of allmovies; let key = index" class="col-12 col-md-6 col-lg-4 text-center mb-2">
 				<div class="card" style="width: 18rem;">
-					<img src="{{item.poster}}" class="card-img-top" alt="...">
+					<div class="card-image">
+						<img src="{{item.poster}}" class="card-img-top" alt="...">
+					</div>
+					
 					<div class="card-body">
 						<h5 class="card-title">{{item.name}}</h5>
 						<button class="btn btn-primary" (click)="showinfos(key)">Voir les infos</button>

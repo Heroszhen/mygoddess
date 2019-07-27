@@ -31,7 +31,7 @@ export class MovieComponent implements OnInit {
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'gotmovies'){
 						this.allmovies = value['data'];
-						console.log(this.allmovies);
+						//console.log(this.allmovies);
 					}
 				}
 			});

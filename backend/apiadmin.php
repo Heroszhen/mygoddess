@@ -89,6 +89,41 @@
 			$response['response'] = "done";
 			echo json_encode($response);
 		}
+		
+		//users
+		if($array->action == "getallusers"){
+			$query = "select id,email,inscriptiondate,role from mygoddessUser";
+			$result = execRequete($query,[]);
+			$result = $result->fetchAll();
+			$response['data'] = $result;
+			$response['response'] = "gotusers";
+			echo json_encode($response);
+		}
+		
+		if($array->action == "deleteoneuser"){
+			$query = "select * from mygoddessUSER where id = :id";
+			$result = execRequete($query,[
+				"id"    => $array->id,
+			]);
+		
+			$result = $result->fetchAll();
+			$response = array();
+			if(count($result) == 0){
+				$response['response'] = "no";
+				echo json_encode($response);
+			}else{
+				$query = "delete from mygoddessUSER where id = :id";
+				$result = execRequete($query,[
+					"id"    => $array->id,
+				]);
+				$query = "select * from mygoddessUSER";
+				$result = execRequete($query,[]);
+				$result = $result->fetchAll();
+				$response['data'] = $result;
+				$response['response'] = "done";
+				echo json_encode($response);
+			}
+		}
 	}
 	
 ?>

@@ -22,8 +22,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Profil</a>
-          <a class="dropdown-item" [routerLink]="['/admingallery','1']">Admin</a>
-          <button class="dropdown-item" (click)="signout()">Déconnexion</button>
+          <a *ngIf="id == 1" class="dropdown-item" [routerLink]="['/admingallery','1']">Admin</a>
+          <a *ngIf="connexion == 0" class="dropdown-item" routerLink="/sign">Connexion</a>
+          <button *ngIf="connexion == 1" class="dropdown-item" (click)="signout()">Déconnexion</button>
         </div>
       </li>
     </ul>

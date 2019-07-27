@@ -10,8 +10,13 @@ import { Input } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 	@Input() father:string;
-
-  constructor(private ms : MyserviceService,private router: Router) { }
+	id:any;
+	connexion = 0;
+  constructor(private ms : MyserviceService,private router: Router) { 
+	this.id = this.ms.getCookie('user')
+	if(this.id == 'no')this.connexion = 0;
+	else this.connexion = 1;
+  }
 
   ngOnInit() {
   }

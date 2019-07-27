@@ -38,7 +38,8 @@ export class MyserviceService {
   
   //cookies
   setCookie(name,valuejson){
-	document.cookie = name+"="+JSON.stringify(valuejson);  
+	document.cookie = name+"="+valuejson;  
+	//JSON.stringify(valuejson)
   }
   
   getCookie(name){
@@ -46,7 +47,7 @@ export class MyserviceService {
 	for(var i =0; i<myarray.length;i++){
 		var courantarray = myarray[i].split('=');
 		if(courantarray[0] == name){
-			return;
+			return courantarray[1];
 		}
 	}
 	return "no";

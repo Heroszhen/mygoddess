@@ -32,6 +32,7 @@ div#gallery>div.photos{
 div#gallery .nav22{
 	display:none;
 }
+/*
 div#gallery .onephoto{
 	overflow:hidden;
 }
@@ -40,9 +41,25 @@ div#gallery .onephoto img{
 	width:auto;
 	display:block;
 	margin: 0 auto;
+}*/
+
+.photoswrap{
+	width:100%;
+	display:flex;
+	flex-wrap:wrap;
+}
+
+.photoswrap>div{
+	width:33.33333333%;
+	height:250px;
+	overflow:hidden;
+}
+.photoswrap>div img{
+	min-height:100%;
+	width:100%;
 }
 .bigimg{
-	position:absolute;
+	position:fixed;
 	top:56px;
 	z-index:200;
 	min-height:200vh;
@@ -97,9 +114,14 @@ div#gallery .onephoto img{
 		width:95%;
 		height:auto;
 	}
+	.photoswrap>div{
+		width:50%;
+	}
 }
 
 
 @media (max-width: 576px){
-	
+	.photoswrap>div{
+		width:100%;
+	}
 }

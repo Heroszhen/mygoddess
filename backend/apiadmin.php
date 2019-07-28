@@ -124,6 +124,59 @@
 				echo json_encode($response);
 			}
 		}
+		
+		//movie
+		if($array->action == "addonemovie"){
+			$query = "insert into mygoddessMovie (name,release_date,running_time,actors,genre,plot,poster) values (:name,:release_date,:running_time,:actors,:genre,:plot,:poster)";
+			$result = execRequete($query,[
+				"name"    => $array->name,
+				"release_date"    => $array->release_date,
+				"running_time"    => $array->running_time,
+				"actors"    => $array->actors,
+				"genre"    => $array->genre,
+				"plot"    => $array->plot,
+				"poster"    => $array->poster,
+			]);
+			
+			$query = "select * from mygoddessMOVIE";
+			$result = execRequete($query,[]);
+			$result = $result->fetchAll();
+			$response['response'] = "done";
+			$response['data'] = $result;
+			echo json_encode($response);
+		}
+		
+		if($array->action == "editonemovie"){
+			$query = "select * from mygoddessMovie where id = :id";
+			$result = execRequete($query,[
+				"id"    => $array->id,
+			]);
+		
+			$result = $result->fetchAll();
+			$response = array();
+			if(count($result) == 0){
+				$response['response'] = "no";
+				echo json_encode($response);
+			}else{
+				$query = "update mygoddessMovie set name = :name,release_date = :release_date,running_time = :running_time,actors = :actors, genre = :genre, plot = :plot, poster = :poster where id = :id";
+				$result = execRequete($query,[
+					"id"    => $array->id,
+					"name"    => $array->name,
+					"release_date"    => $array->release_date,
+					"running_time"    => $array->running_time,
+					"actors"    => $array->actors,
+					"genre"    => $array->genre,
+					"plot"    => $array->plot,
+					"poster"    => $array->poster,
+				]);
+				$query = "select * from mygoddessMOVIE";
+				$result = execRequete($query,[]);
+				$result = $result->fetchAll();
+				$response['response'] = "done";
+				$response['data'] = $result;
+				echo json_encode($response);
+			}
+		}
 	}
 	
 ?>

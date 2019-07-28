@@ -2,14 +2,39 @@
 <div id="video" class="undertopfixed">
 	<section *ngIf="showsection1 == true" class="container section1">
 		<div class="row">
-			<div *ngFor="let item of allvideos;let key of indice" class="col-md-4 col-lg-3 text-center mb-3">
+			<div *ngFor="let item of allvideos;let key = index" class="col-md-4 col-lg-3 text-center mb-3">
 				<iframe  width="936" height="526" [src]="item.link| safe" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-				<div (click)="showonevideo()">
+				<div (click)="showonevideo(key)">
 					{{item.title}}
 				</div>
 			</div>
 		</div>
 	</section>
-	<section *ngIf="showsection2 == true"  class="section2">
+	<section *ngIf="showsection2 == true"  class="container section2">
+		<div class="row">
+			<div class="col-12 col-md-8 mb-3">
+				
+				<div class="text-center">
+					<iframe class="oneiframe"  [src]="onevideo.link| safe" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				 
+				<div class="h4">
+					<strong>{{onevideo.title}}</strong>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 mb-2">
+				<div>
+					<button type="button" class="btn btn-light mb-2 btn-sm" (click)="goBack()">Quitter</button>
+				</div>
+				<div *ngFor="let item of allvideos;let key = index" class="mb-3 listing">
+					<div *ngIf="item.id != onevideo.id">
+						<iframe [src]="item.link| safe" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+						<div (click)="showonevideo(key)">
+							{{item.title}}
+						</div>
+					</div>
+			</div>
+			</div>
+		</div>
 	</section>
 </div>

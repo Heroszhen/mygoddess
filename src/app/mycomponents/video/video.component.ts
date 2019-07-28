@@ -35,7 +35,14 @@ export class VideoComponent implements OnInit {
 		});
 		});
 	}
-	showonevideo(){
-		alert("llll");
+	showonevideo(key){
+		this.showsection1 = false;
+		this.showsection2 = true;
+		this.onevideo = this.allvideos[key];
+	}
+	
+	goBack(){
+		this.showsection1 = true;
+		this.showsection2 = false;
 	}
 }

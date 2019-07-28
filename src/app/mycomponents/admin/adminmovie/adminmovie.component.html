@@ -1,1 +1,157 @@
-<p>adminmovie works!</p>
+<div id="adminmovie">
+	<div id="nav">
+		<app-adminnave></app-adminnave>
+	</div>
+	<div id="main">
+		<section *ngIf="showsection == 1" class="container-fluid">
+			<div class="row mb-2 pt-5">
+				<div class="col-12">
+					<h5><strong>Ajouter un film</strong></h5>
+					<div class="mt-1 mb-1">
+						<span [innerHTML]="msgalert"></span>
+					</div>
+					<form>
+						<div class="row">
+							<div class="form-group col-6">
+								<label for="titre">Titre</label>
+								<input type="text" class="form-control"  placeholder="Entrez Titre" [(ngModel)]="movie1.name" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="date">Date de sortie</label>
+								<input type="text" class="form-control" placeholder="Entrez date" [(ngModel)]="movie1.release_date" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="last">Durée</label>
+								<input type="text" class="form-control" placeholder="Entrez durée" [(ngModel)]="movie1.running_time" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="actors">Durée</label>
+								<input type="text" class="form-control" placeholder="Entrez acteurs" [(ngModel)]="movie1.actors" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="genres">Genres</label>
+								<input type="text" class="form-control" placeholder="Entrez genres" [(ngModel)]="movie1.genre" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="poster">Image</label>
+								<input type="text" class="form-control" placeholder="Entrez url" [(ngModel)]="movie1.poster" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-12">
+								<label for="plot">Résumé</label>
+								<textarea class="form-control" rows="3" [(ngModel)]="movie1.plot" [ngModelOptions]="{standalone: true}"></textarea>
+							</div>
+							<div class="col-12">
+								<button type="submit" class="btn btn-primary btn-sm" (click)="addOneMovie()">Ajouter</button>
+							</div>
+						</div>	
+					</form>
+				</div>
+			</div>
+			
+			<div class="row">
+				<h3 class="col-12 text-center text-primary mt-2 mb-4">Tous les films</h3>
+				<div class="col-12">
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Id</th>
+								<th scope="col">Titre</th>
+								<th scope="col">Date de sortie</th>
+								<th scope="col">Durée</th>
+								<th scope="col">Acteurs</th>
+								<th scope="col">Genres</th>
+								<th scope="col">Résumé</th>
+								<th scope="col">Image</th>
+								<th scope="col">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let item of allmovies;let key = index" >
+								<th scope="row">{{item.id}}</th>
+								<td>{{item.name}}</td>
+								<td>{{item.release_date}}</td>
+								<td>{{item.running_time}}</td>
+								<td>{{item.actors}}</td>
+								<td>{{item.genre}}</td>
+								<td>
+									<div *ngIf="idplot == key">
+										{{item.plot}}
+									</div>
+									<div *ngIf="idplot == ''">
+										...
+									</div>
+								</td>
+								<td>
+									<img src="{{item.poster}}" alt="">
+								</td>
+								<td>
+									<button type="button" class="btn btn-outline-info btn-sm mb-2" (click)="editOneMovie(key)" data-toggle="modal" data-target="#exampleModalLong">Modifier</button>
+									<br>
+									<button type="button" class="btn btn-outline-danger btn-sm mb-2" (click)="deleteOneMovie(key)">Supprimer</button>
+									<br>
+									<button type="button" class="btn btn-outline-dark btn-sm mb-2" (click)="showPlot(key)">Résumé</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modifer un film</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<form>
+						<div class="row">
+							<div class="form-group col-12">
+								<label for="id">Id</label>
+								<input type="text" class="form-control" [(ngModel)]="movie2.id" [ngModelOptions]="{standalone: true}"  disabled>
+							</div>
+							<div class="form-group col-6">
+								<label for="titre">Titre</label>
+								<input type="text" class="form-control"  placeholder="Entrez Titre" [(ngModel)]="movie2.name" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="date">Date de sortie</label>
+								<input type="text" class="form-control" placeholder="Entrez date" [(ngModel)]="movie2.release_date" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="last">Durée</label>
+								<input type="text" class="form-control" placeholder="Entrez durée" [(ngModel)]="movie2.running_time" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="actors">Durée</label>
+								<input type="text" class="form-control" placeholder="Entrez acteurs" [(ngModel)]="movie2.actors" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="genres">Genres</label>
+								<input type="text" class="form-control" placeholder="Entrez genres" [(ngModel)]="movie2.genre" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-6">
+								<label for="poster">Image</label>
+								<input type="text" class="form-control" placeholder="Entrez url" [(ngModel)]="movie2.poster" [ngModelOptions]="{standalone: true}">
+							</div>
+							<div class="form-group col-12">
+								<label for="plot">Résumé</label>
+								<textarea class="form-control" rows="3" [(ngModel)]="movie2.plot" [ngModelOptions]="{standalone: true}"></textarea>
+							</div>
+						</div>	
+					</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-sm" (click)="editMovie()">Modifier</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -41,11 +41,16 @@
 					<button (click)="showflouter()" class="btn btn-outline-primary btn-sm">Flouter</button>
 					<button (click)="showgriser()" class="btn btn-outline-primary btn-sm">Griser</button>
 				</div>
+				<!--
 				<div *ngFor="let item of allphotos" class="col-md-6 col-lg-4 col-xl-3 text-center mb-2">
 					<div [ngClass]="{'onephoto': onephoto==true, 'border1': border1==true, 'flouter': flouter==true,'griser':griser==true}" (click)="enlargephoto(item.link)">
 						<img src="{{item.link}}" alt="">
 					</div>
-					
+				</div>-->
+				<div class="text-center photoswrap">
+					<div *ngFor="let item of allphotos"  [ngClass]="{'onephoto': onephoto==true, 'border1': border1==true, 'flouter': flouter==true,'griser':griser==true}" (click)="enlargephoto(item.link)">
+						<img src="{{item.link}}" alt="">
+					</div>
 				</div>
 			</div>
 		</div>

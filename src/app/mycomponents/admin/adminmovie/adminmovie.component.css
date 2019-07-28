@@ -1,0 +1,18 @@
+#adminmovie{
+	display:flex;
+}
+#adminmovie>div:nth-child(1){
+	position:fixed;
+	top:0px;
+	width:240px;
+	min-height:100vh;
+}
+#adminmovie>div:nth-child(2){
+	margin-left:240px;
+	width:calc(100% - 240px);
+}
+
+#adminmovie table img{
+	width:100px;
+	height:auto;
+}

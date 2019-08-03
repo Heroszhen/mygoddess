@@ -50,8 +50,8 @@ div#gallery .onephoto img{
 }
 
 .photoswrap>div{
-	width:33.33333333%;
-	height:250px;
+	width:25%;
+	height:200px;
 	overflow:hidden;
 }
 .photoswrap>div img{

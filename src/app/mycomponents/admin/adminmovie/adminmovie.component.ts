@@ -87,7 +87,7 @@ export class AdminmovieComponent implements OnInit {
 					if(value['response'] == 'done'){
 						this.allmovies = value['data'];
 						//this.msgalert = "<div class='alert alert-success'>Vos modifications ont été enregistrées avec succès</div>";
-						$('#exampleModalLong').modal('hide')
+						//$('#exampleModalLong').modal('hide')
 					}
 					if(value['response'] == 'no'){
 						//this.msgalert = "<div class='alert alert-danger'>Il y a des erreurs</div>"

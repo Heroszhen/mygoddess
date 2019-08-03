@@ -17,6 +17,7 @@ import { AdminnaveComponent } from './mycomponents/admin/adminnave/adminnave.com
 import { AdmingalleryComponent } from './mycomponents/admin/admingallery/admingallery.component';
 import { AdminuserComponent } from './mycomponents/admin/adminuser/adminuser.component';
 import { AdminmovieComponent } from './mycomponents/admin/adminmovie/adminmovie.component';
+import { AdminvideoComponent } from './mycomponents/admin/adminvideo/adminvideo.component';
 
 
 
@@ -33,7 +34,8 @@ import { AdminmovieComponent } from './mycomponents/admin/adminmovie/adminmovie.
     AdminnaveComponent,
     AdmingalleryComponent,
     AdminuserComponent,
-    AdminmovieComponent
+    AdminmovieComponent,
+    AdminvideoComponent
   ],
   imports: [
     BrowserModule,

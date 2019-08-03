@@ -10,6 +10,8 @@ import { VideoComponent } from './mycomponents/video/video.component';
 import { AdmingalleryComponent } from './mycomponents/admin/admingallery/admingallery.component';
 import { AdminuserComponent } from './mycomponents/admin/adminuser/adminuser.component';
 import { AdminmovieComponent } from './mycomponents/admin/adminmovie/adminmovie.component';
+import { AdminvideoComponent } from './mycomponents/admin/adminvideo/adminvideo.component';
+
 
 const routes: Routes = [
 	{path:'',component : HomeComponent },
@@ -22,7 +24,8 @@ const routes: Routes = [
 	{path:'admingallery/1',component : AdmingalleryComponent },
 	{path:'admingallery/2',component : AdmingalleryComponent },
 	{path:'adminuser',component : AdminuserComponent },
-	{path:'adminmovie',component : AdminmovieComponent }
+	{path:'adminmovie',component : AdminmovieComponent },
+	{path:'adminvideo',component : AdminvideoComponent }
 ];
 
 @NgModule({

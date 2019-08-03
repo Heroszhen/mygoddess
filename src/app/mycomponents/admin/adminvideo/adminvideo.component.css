@@ -1,0 +1,45 @@
+#adminvideo{
+	display:flex;
+}
+#adminvideo>div:nth-child(1){
+	position:fixed;
+	top:0px;
+	width:240px;
+	min-height:100vh;
+}
+#adminvideo>div:nth-child(2){
+	margin-left:240px;
+	width:calc(100% - 240px);
+}
+
+#adminvideo table img{
+	width:100px;
+	height:auto;
+}
+#adminvideo .twosections{
+	width:100%;
+	display:flex !important;
+}
+
+#adminvideo .visiblesection{
+	width:100%;
+}
+
+#adminvideo .hiddensection{
+	width:0%;
+}
+
+#adminvideo .visiblesections{
+	width:50%;
+}
+#adminvideo .visiblesections2{
+	box-sizing: border-box;
+	padding-left:40px;
+	padding-right:40px;
+	width:50%;
+}
+
+#adminvideo #s2{
+	
+	overflow:hidden;
+}

@@ -31,7 +31,7 @@ export class GalleryComponent implements OnInit {
 		var query = {
 			'action':'allphotos'
 		};
-		this.ms.mypostquery(query,'api');
+		this.ms.mypostquery(query,'api.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 			if(value != null && Object.keys(value).length !== 0){

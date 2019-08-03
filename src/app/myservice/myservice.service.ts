@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -22,7 +22,10 @@ export class MyserviceService {
   
     
   postQuery(query:{},url): Observable<{}> {
-		return this.http.post(`${this.baseUrl}`+url, query).pipe(
+		let type = "application/json;charset=UTF-8";
+		let myheaders = new HttpHeaders({'Content-Type':type});
+		let options = {headers:myheaders};
+		return this.http.post(`${this.baseUrl}`+url, query,options).pipe(
 		  catchError(this.handleError)
 		); 
   }

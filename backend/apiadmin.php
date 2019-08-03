@@ -1,5 +1,11 @@
 <?php
-
+/*
+	header("Access-Control-Allow-Origin: *");
+	header("Access-Control-Allow-Credentials: true");
+	header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
+	header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
+	header("Content-Type: application/json; charset=utf-8");
+	*/
 	require_once "init.php";
 	define('SALT', 'heroszhen');
 	
@@ -127,7 +133,7 @@
 		
 		//movie
 		if($array->action == "addonemovie"){
-			$query = "insert into mygoddessMovie (name,release_date,running_time,actors,genre,plot,poster) values (:name,:release_date,:running_time,:actors,:genre,:plot,:poster)";
+			$query = "insert into mygoddessMOVIE (name,release_date,running_time,actors,genre,plot,poster) values (:name,:release_date,:running_time,:actors,:genre,:plot,:poster)";
 			$result = execRequete($query,[
 				"name"    => $array->name,
 				"release_date"    => $array->release_date,
@@ -174,6 +180,76 @@
 				$result = $result->fetchAll();
 				$response['response'] = "done";
 				$response['data'] = $result;
+				echo json_encode($response);
+			}
+		}
+		
+		//video
+		if($array->action == "addonevideo"){
+			$query = "insert into mygoddessVIDEO (title,link,type) values (:title,:link,:type)";
+			$result = execRequete($query,[
+				"title"    => $array->title,
+				"link"    => $array->link,
+				"type"    => $array->type,
+			]);
+			
+			$query = "select * from mygoddessVIDEO";
+			$result = execRequete($query,[]);
+			$result = $result->fetchAll();
+			$response['response'] = "done";
+			$response['data'] = $result;
+			echo json_encode($response);
+		}
+		
+		if($array->action == "deleteonevideo"){
+			$query = "select * from mygoddessVIDEO where id = :id";
+			$result = execRequete($query,[
+				"id"    => $array->id,
+			]);
+		
+			$result = $result->fetchAll();
+			$response = array();
+			if(count($result) == 0){
+				$response['response'] = "no";
+				echo json_encode($response);
+			}else{
+				$query = "delete from mygoddessVIDEO where id = :id";
+				$result = execRequete($query,[
+					"id"    => $array->id,
+				]);
+				$query = "select * from mygoddessVIDEO";
+				$result = execRequete($query,[]);
+				$result = $result->fetchAll();
+				$response['data'] = $result;
+				$response['response'] = "done";
+				echo json_encode($response);
+			}
+		}
+		
+		if($array->action == "editonevideo"){
+			$query = "select * from mygoddessVIDEO where id = :id";
+			$result = execRequete($query,[
+				"id"    => $array->id,
+			]);
+		
+			$result = $result->fetchAll();
+			$response = array();
+			if(count($result) == 0){
+				$response['response'] = "no";
+				echo json_encode($response);
+			}else{
+				$query = "update mygoddessVIDEO set title = :title, link = :link, type = :type where id = :id";
+				$result = execRequete($query,[
+					"id"    => $array->id,
+					"title"    => $array->title,
+					"link"    => $array->link,
+					"type"    => $array->type,
+				]);
+				$query = "select * from mygoddessVIDEO";
+				$result = execRequete($query,[]);
+				$result = $result->fetchAll();
+				$response['data'] = $result;
+				$response['response'] = "done";
 				echo json_encode($response);
 			}
 		}

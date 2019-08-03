@@ -67,4 +67,24 @@
 			</div>
 		</section>
 	</div>
+	<div id="showvideo">
+		<div class="title" (click)="showsectionbtn('videos')">
+			<div class="partI">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" style="fill:white" d="M15.2 2.09L10 5.72V3c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V9.28l5.2 3.63c.33.23.8 0 .8-.41v-10c0-.41-.47-.64-.8-.41z"/></svg>
+				Video
+			</div>
+			<div class="partII">
+				<svg xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16" class="chevronright" *ngIf="showsection != 'movies'"><path fill-rule="evenodd" style="fill:white" d="M7.5 8l-5 5L1 11.5 4.75 8 1 4.5 2.5 3l5 5z"/></svg>
+				<svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16"  *ngIf="showsection == 'movies'"><path fill-rule="evenodd" style="fill:white" d="M5 11L0 6l1.5-1.5L5 8.25 8.5 4.5 10 6l-5 5z"/></svg>
+			</div>
+		</div>
+		<section *ngIf="showsection == 'videos'">
+			<div class="btnsection" routerLink="/adminvideo">
+				Toutes les videos
+			</div>
+			<div class="btnsection" routerLink="/video">
+				Video
+			</div>
+		</section>
+	</div>
 </div>

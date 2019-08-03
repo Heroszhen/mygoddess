@@ -1,0 +1,99 @@
+<div id="adminvideo">
+	<div id="nav">
+		<app-adminnave></app-adminnave>
+	</div>
+	<div id="main">
+		<section class="container-fluid">
+			<div class="row">
+				<h3 class="col-12 text-center text-primary mt-2 mb-4"><strong>Toutes les videos</strong></h3>
+				<div class="col-12">
+					<div class="twosections">
+						<div id="s1" [ngClass]="{'visiblesection': shows2 == false, 'visiblesections': shows2 == true}">
+							<div class="text-right mb-1">
+								<button class="btn btn-outline-primary btn-sm" (click)="showsection2()">Ajouter une video</button>
+							</div>
+							<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th scope="col">Id</th>
+										<th scope="col">Titre</th>
+										<th scope="col">Type</th>
+										<th scope="col">Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let item of allvideos;let key = index" >
+										<th scope="row">{{item.id}}</th>
+										<td>
+											<a href="{{item.link}}" target="_blank">{{item.title}}</a>
+										</td>
+										<td>{{item.type}}</td>
+										<td>
+											<button type="button" class="btn btn-outline-info btn-sm mb-2" (click)="editOneVideo(key)" data-toggle="modal" data-target="#exampleModalLong">Modifier</button>
+											<br>
+											<button type="button" class="btn btn-outline-danger btn-sm mb-2" (click)="deleteOneVideo(key)">Supprimer</button>
+											<br>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="s2" [ngClass]="{'hiddensection': shows2 == false, 'visiblesections2': shows2 == true}">
+							<div id="add" class="mb-5">
+								<h5>Ajouter une video</h5>
+								<div class="mt-1 mb-1">
+									<span [innerHTML]="msgalert"></span>
+								</div>
+								<form>
+									<div class="row">
+										<div class="form-group col-12">
+											<label for="titre">Titre</label>
+											<input type="text" class="form-control"  placeholder="Entrez titre" [(ngModel)]="video2.title" [ngModelOptions]="{standalone: true}">
+										</div>
+										<div class="form-group col-12">
+											<label for="link">Url</label>
+											<input type="text" class="form-control" placeholder="Entrez url" [(ngModel)]="video2.link" [ngModelOptions]="{standalone: true}">
+										</div>
+										<div class="form-group col-12">
+											<label for="type">Type</label>
+											<input type="text" class="form-control"  placeholder="Entrez type" [(ngModel)]="video2.type" [ngModelOptions]="{standalone: true}">
+										</div>
+										<div class="col-12">
+											<button type="submit" class="btn btn-primary btn-sm" (click)="addOneVideo()">Ajouter</button>
+										</div>
+									</div>	
+								</form>
+							</div>
+							
+							<div id="edit" class="mt-5">
+								<h5>Modifier la video {{numero}}</h5>
+								<div class="mt-1 mb-1">
+									<span [innerHTML]="msgalert2"></span>
+								</div>
+								<form>
+									<div class="row">
+										<div class="form-group col-12">
+											<label for="titre">Titre</label>
+											<input type="text" class="form-control"  placeholder="Entrez titre" [(ngModel)]="video1.title" [ngModelOptions]="{standalone: true}">
+										</div>
+										<div class="form-group col-12">
+											<label for="link">Url</label>
+											<input type="text" class="form-control" placeholder="Entrez url" [(ngModel)]="video1.link" [ngModelOptions]="{standalone: true}">
+										</div>
+										<div class="form-group col-12">
+											<label for="type">Type</label>
+											<input type="text" class="form-control"  placeholder="Entrez type" [(ngModel)]="video1.type" [ngModelOptions]="{standalone: true}">
+										</div>
+										<div class="col-12">
+											<button type="submit" class="btn btn-info btn-sm" (click)="editVideo()">Modifier</button>
+										</div>
+									</div>	
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>

@@ -22,7 +22,7 @@ export class AdminvideoComponent implements OnInit {
 	};
 	msgalert = "";
 	msgalert2 = "";
-	numeros = "";
+	numero = "";
   constructor(private ms:MyserviceService) {
 	this.getAllVideos();
    }
@@ -34,7 +34,7 @@ export class AdminvideoComponent implements OnInit {
 		var query = {
 			'action':'allvideos'
 		};
-		this.ms.mypostquery(query,'api');
+		this.ms.mypostquery(query,'api.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
@@ -62,7 +62,7 @@ export class AdminvideoComponent implements OnInit {
 	}
 	
 	addOneVideo(){
-		this.ms.mypostquery(this.video2,'apiadmin');
+		this.ms.mypostquery(this.video2,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
@@ -83,7 +83,7 @@ export class AdminvideoComponent implements OnInit {
 			"id":this.allvideos[key].id,
 			"action":"deleteonevideo"
 		}
-		this.ms.mypostquery(query,'apiadmin');
+		this.ms.mypostquery(query,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
@@ -97,7 +97,7 @@ export class AdminvideoComponent implements OnInit {
 	
 	editVideo(){
 		this.video1['action'] = "editonevideo";
-		this.ms.mypostquery(this.video1,'apiadmin');
+		this.ms.mypostquery(this.video1,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){

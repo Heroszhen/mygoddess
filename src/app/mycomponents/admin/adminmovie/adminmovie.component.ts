@@ -28,7 +28,7 @@ export class AdminmovieComponent implements OnInit {
 		var query = {
 			'action':'allmovies'
 		};
-		this.ms.mypostquery(query,'api');
+		this.ms.mypostquery(query,'api.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
@@ -47,7 +47,7 @@ export class AdminmovieComponent implements OnInit {
 	}
 	
 	addMovie(){
-		this.ms.mypostquery(this.movie1,'apiadmin');
+		this.ms.mypostquery(this.movie1,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
@@ -80,7 +80,7 @@ export class AdminmovieComponent implements OnInit {
 	}
 	
 	editMovie(){
-		this.ms.mypostquery(this.movie2,'apiadmin');
+		this.ms.mypostquery(this.movie2,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){

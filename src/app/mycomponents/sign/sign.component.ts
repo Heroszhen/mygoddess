@@ -61,7 +61,7 @@ export class SignComponent implements OnInit {
 			'password':this.connectionForm.controls.connectionPassword.value,
 			'action':'connection'
 		};
-		this.ms.mypostquery(obj,'api');
+		this.ms.mypostquery(obj,'api.php');
 		this.ms.result$.subscribe((value) => {
 			if(value != null && Object.keys(value).length !== 0){
 				if(value['response'] == 'noconnection')this.resultapi = 'Veuillez verifiez votre mail et votre mot de passe';
@@ -80,7 +80,7 @@ export class SignComponent implements OnInit {
 			'password':this.inscriptionForm.controls.inscriptionPassword.value,
 			'action':'inscription'
 		};
-		this.ms.mypostquery(obj,'api');
+		this.ms.mypostquery(obj,'api.php');
 		this.ms.result$.subscribe((value) => {
 			if('response' in value)this.resultapi = value['response'];
 		});

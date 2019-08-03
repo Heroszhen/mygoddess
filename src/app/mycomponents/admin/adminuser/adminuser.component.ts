@@ -22,7 +22,7 @@ export class AdminuserComponent implements OnInit {
 		var query = {
 			'action':'getallusers'
 		};
-		this.ms.mypostquery(query,'apiadmin');
+		this.ms.mypostquery(query,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 			if(value != null && Object.keys(value).length !== 0){
@@ -40,7 +40,7 @@ export class AdminuserComponent implements OnInit {
 			'id' : this.allusers[key].id
 		};
 		
-		this.ms.mypostquery(query,'apiadmin');
+		this.ms.mypostquery(query,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){

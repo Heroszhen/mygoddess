@@ -28,7 +28,7 @@ export class AdmingalleryComponent implements OnInit {
 		var query = {
 			'action':'allphotos'
 		};
-		this.ms.mypostquery(query,'api');
+		this.ms.mypostquery(query,'api.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 			if(value != null && Object.keys(value).length !== 0){
@@ -46,7 +46,7 @@ export class AdmingalleryComponent implements OnInit {
 			'id' : this.allphotos[key].id
 		};
 		
-		this.ms.mypostquery(query,'apiadmin');
+		this.ms.mypostquery(query,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
@@ -68,7 +68,7 @@ export class AdmingalleryComponent implements OnInit {
 	
 	editPhoto(){
 		this.msgalert = "<div></div>";
-		this.ms.mypostquery(this.photo1,'apiadmin');
+		this.ms.mypostquery(this.photo1,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
@@ -91,7 +91,7 @@ export class AdmingalleryComponent implements OnInit {
 	addPhoto(){
 		this.msgalert = "<div></div>";
 		this.photo2.action = "addonephoto";
-		this.ms.mypostquery(this.photo2,'apiadmin');
+		this.ms.mypostquery(this.photo2,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
 			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){

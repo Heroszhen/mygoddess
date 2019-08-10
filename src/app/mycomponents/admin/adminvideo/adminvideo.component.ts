@@ -36,14 +36,14 @@ export class AdminvideoComponent implements OnInit {
 		};
 		this.ms.mypostquery(query,'api.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
+			
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'gotvideos'){
 						this.allvideos = value['data'];
 						//console.log(this.allvideos);
 					}
 				}
-			});
+			
 		});
 	}
 	
@@ -64,7 +64,7 @@ export class AdminvideoComponent implements OnInit {
 	addOneVideo(){
 		this.ms.mypostquery(this.video2,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
+			
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'done'){
 						this.allvideos = value['data'];
@@ -74,7 +74,7 @@ export class AdminvideoComponent implements OnInit {
 						this.msgalert = "<div class='alert alert-danger'>Il y a des erreurs</div>"
 					}
 				}
-			});
+			
 		});
 	}
 	
@@ -85,13 +85,13 @@ export class AdminvideoComponent implements OnInit {
 		}
 		this.ms.mypostquery(query,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
+			
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'done'){
 						this.allvideos = value['data'];
 					}
 				}
-			});
+			
 		});
 	}
 	
@@ -99,7 +99,7 @@ export class AdminvideoComponent implements OnInit {
 		this.video1['action'] = "editonevideo";
 		this.ms.mypostquery(this.video1,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
+			
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'done'){
 						this.allvideos = value['data'];
@@ -109,7 +109,7 @@ export class AdminvideoComponent implements OnInit {
 						this.msgalert2 = "<div class='alert alert-danger'>Il y a des erreurs</div>"
 					}
 				}
-			});
+			
 		});
 	}
 }

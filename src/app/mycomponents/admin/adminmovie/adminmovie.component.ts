@@ -14,6 +14,7 @@ export class AdminmovieComponent implements OnInit {
 	movie1 = new Movie("addonemovie");
 	movie2 = new Movie("editonemovie");
 	msgalert:any;
+	msgalert2:any;
 	idplot = -1;
 	
 	constructor(private ms:MyserviceService) {
@@ -30,36 +31,33 @@ export class AdminmovieComponent implements OnInit {
 		};
 		this.ms.mypostquery(query,'api.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'gotmovies'){
 						this.allmovies = value['data'];
 						//console.log(this.allmovies);
 					}
 				}
-			});
 		});
 	}
 	
 	addOneMovie(){
 		this.addMovie();
-		this.movie1.reset();
+		//
 	}
 	
 	addMovie(){
 		this.ms.mypostquery(this.movie1,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'done'){
 						this.allmovies = value['data'];
 						this.msgalert = "<div class='alert alert-success' id='msgalert'>Votre film a été enregistré avec succès</div>";
+						this.movie1.reset();
 					}
 					if(value['response'] == 'no'){
 						this.msgalert = "<div class='alert alert-danger'>Il y a des erreurs</div>"
 					}
 				}
-			});
 		});
 	}
 	
@@ -82,18 +80,34 @@ export class AdminmovieComponent implements OnInit {
 	editMovie(){
 		this.ms.mypostquery(this.movie2,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'done'){
 						this.allmovies = value['data'];
-						//this.msgalert = "<div class='alert alert-success'>Vos modifications ont été enregistrées avec succès</div>";
+						this.msgalert2 = "<div class='alert alert-success'>Vos modifications ont été enregistrées avec succès</div>";
 						//$('#exampleModalLong').modal('hide')
 					}
 					if(value['response'] == 'no'){
 						//this.msgalert = "<div class='alert alert-danger'>Il y a des erreurs</div>"
 					}
 				}
-			});
+		});
+	}
+	
+	deleteOneMovie(key){
+		var query = {
+			"id":this.allmovies[key].id,
+			'action':'deleteonemovie'
+		};
+		this.ms.mypostquery(query,'apiadmin.php');
+		this.ms.result$.subscribe((value) => {
+			if(value != null && Object.keys(value).length !== 0){
+					if(value['response'] == 'done'){
+						this.allmovies = value['data'];
+					}
+					if(value['response'] == 'no'){
+						
+					}
+				}
 		});
 	}
 }

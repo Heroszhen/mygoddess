@@ -24,13 +24,11 @@ export class AdminuserComponent implements OnInit {
 		};
 		this.ms.mypostquery(query,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
 			if(value != null && Object.keys(value).length !== 0){
 				if(value['response'] == 'gotusers'){
 					this.allusers = value['data'];
 				}
 			}
-		});
 		});
 	}
 	
@@ -42,14 +40,12 @@ export class AdminuserComponent implements OnInit {
 		
 		this.ms.mypostquery(query,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'done'){
 						//this.allphotos.splice(key, 1);
 						this.allusers = value['data'];
 					}
 				}
-			});
 		});
 	}
 	

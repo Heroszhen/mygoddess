@@ -30,13 +30,11 @@ export class AdmingalleryComponent implements OnInit {
 		};
 		this.ms.mypostquery(query,'api.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
 			if(value != null && Object.keys(value).length !== 0){
 				if(value['response'] == 'gotphotos'){
 					this.allphotos = value['data'];
 				}
 			}
-		});
 		});
 	}
 	
@@ -48,14 +46,12 @@ export class AdmingalleryComponent implements OnInit {
 		
 		this.ms.mypostquery(query,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'done'){
 						//this.allphotos.splice(key, 1);
 						this.allphotos = value['data'];
 					}
 				}
-			});
 		});
 	}
 	
@@ -70,7 +66,6 @@ export class AdmingalleryComponent implements OnInit {
 		this.msgalert = "<div></div>";
 		this.ms.mypostquery(this.photo1,'apiadmin.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'done'){
 						this.allphotos[this.photo1.id_allphotos].link = this.photo1.link;
@@ -80,7 +75,6 @@ export class AdmingalleryComponent implements OnInit {
 						this.msgalert = "<div class='alert alert-danger'>Il y a des erreurs</div>"
 					}
 				}
-			});
 		});
 	}
 	
@@ -97,7 +91,7 @@ export class AdmingalleryComponent implements OnInit {
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'done'){
 						this.allphotos = value['data'];
-						this.msgalert = "<div class='alert alert-success'>Vos modifications ont été enregistrées avec succès</div>";
+						this.msgalert = "<div class='alert alert-success'>Votre photo a été enregistrée avec succès</div>";
 					}
 					if(value['response'] == 'no'){
 						this.msgalert = "<div class='alert alert-danger'>Il y a des erreurs</div>"

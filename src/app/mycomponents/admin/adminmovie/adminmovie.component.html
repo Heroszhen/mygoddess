@@ -111,6 +111,9 @@
         </button>
       </div>
       <div class="modal-body">
+		  <div class="mt-1 mb-1">
+			<span [innerHTML]="msgalert2"></span>
+		</div>
 		<form>
 						<div class="row">
 							<div class="form-group col-12">
@@ -130,7 +133,7 @@
 								<input type="text" class="form-control" placeholder="Entrez durée" [(ngModel)]="movie2.running_time" [ngModelOptions]="{standalone: true}">
 							</div>
 							<div class="form-group col-6">
-								<label for="actors">Durée</label>
+								<label for="actors">Acteurs</label>
 								<input type="text" class="form-control" placeholder="Entrez acteurs" [(ngModel)]="movie2.actors" [ngModelOptions]="{standalone: true}">
 							</div>
 							<div class="form-group col-6">

@@ -153,7 +153,7 @@
 		}
 		
 		if($array->action == "editonemovie"){
-			$query = "select * from mygoddessMovie where id = :id";
+			$query = "select * from mygoddessMOVIE where id = :id";
 			$result = execRequete($query,[
 				"id"    => $array->id,
 			]);
@@ -164,7 +164,7 @@
 				$response['response'] = "no";
 				echo json_encode($response);
 			}else{
-				$query = "update mygoddessMovie set name = :name,release_date = :release_date,running_time = :running_time,actors = :actors, genre = :genre, plot = :plot, poster = :poster where id = :id";
+				$query = "update mygoddessMOVIE set name = :name,release_date = :release_date,running_time = :running_time,actors = :actors, genre = :genre, plot = :plot, poster = :poster where id = :id";
 				$result = execRequete($query,[
 					"id"    => $array->id,
 					"name"    => $array->name,
@@ -182,6 +182,20 @@
 				$response['data'] = $result;
 				echo json_encode($response);
 			}
+		}
+		
+		if($array->action == "deleteonemovie"){
+			$query = "delete from mygoddessMOVIE where id = :id";
+			$result = execRequete($query,[
+				"id"    => $array->id,
+			]);
+		
+			$query = "select * from mygoddessMOVIE";
+			$result = execRequete($query,[]);
+			$result = $result->fetchAll();
+			$response['response'] = "done";
+			$response['data'] = $result;
+			echo json_encode($response);
 		}
 		
 		//video

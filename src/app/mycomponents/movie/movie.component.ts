@@ -27,14 +27,12 @@ export class MovieComponent implements OnInit {
 		};
 		this.ms.mypostquery(query,'api.php');
 		this.ms.result$.subscribe((value) => {
-			this.ms.result$.subscribe((value) => {
 				if(value != null && Object.keys(value).length !== 0){
 					if(value['response'] == 'gotmovies'){
 						this.allmovies = value['data'];
 						//console.log(this.allmovies);
 					}
 				}
-			});
 		});
 	}
 	
